@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { createOrder } from "../Redux/Actions/OrderActions";
-import { ORDER_CREATE_RESET } from "../Redux/Constants/OrderConstants";
-import Header from "./../components/Header";
-import Message from "./../components/LoadingError/Error";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { createOrder } from '../Redux/Actions/OrderActions';
+import { ORDER_CREATE_RESET } from '../Redux/Constants/OrderConstants';
+import Header from './../components/Header';
+import Message from './../components/LoadingError/Error';
 
 const PlaceOrderScreen = ({ history }) => {
   window.scrollTo(0, 0);
@@ -68,7 +68,7 @@ const PlaceOrderScreen = ({ history }) => {
               </div>
               <div className="col-md-8 center">
                 <h5>
-                  <strong>Customer</strong>
+                  <strong>Cliente</strong>
                 </h5>
                 <p>{userInfo.name}</p>
                 <p>{userInfo.email}</p>
@@ -87,8 +87,8 @@ const PlaceOrderScreen = ({ history }) => {
                 <h5>
                   <strong>Order info</strong>
                 </h5>
-                <p>Shipping: {cart.shippingAddress.country}</p>
-                <p>Pay method: {cart.paymentMethod}</p>
+                <p>Envío: {cart.shippingAddress.country}</p>
+                <p>Método de pago: {cart.paymentMethod}</p>
               </div>
             </div>
           </div>
@@ -102,11 +102,11 @@ const PlaceOrderScreen = ({ history }) => {
               </div>
               <div className="col-md-8 center">
                 <h5>
-                  <strong>Deliver to</strong>
+                  <strong>Entregar a</strong>
                 </h5>
                 <p>
-                  Address: {cart.shippingAddress.city},{" "}
-                  {cart.shippingAddress.address},{" "}
+                  Dirección: {cart.shippingAddress.city},{' '}
+                  {cart.shippingAddress.address},{' '}
                   {cart.shippingAddress.postalCode}
                 </p>
               </div>
@@ -117,7 +117,9 @@ const PlaceOrderScreen = ({ history }) => {
         <div className="row order-products justify-content-between">
           <div className="col-lg-8">
             {cart.cartItems.length === 0 ? (
-              <Message variant="alert-info mt-5">Your cart is empty</Message>
+              <Message variant="alert-info mt-5">
+                Tu carrito está vacío.
+              </Message>
             ) : (
               <>
                 {cart.cartItems.map((item, index) => (

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const Footer = () => {
   return (
@@ -19,7 +19,7 @@ const Footer = () => {
         <div className="card-name">
           <img
             alt="paypal"
-            src="https://pbs.twimg.com/media/EfTZlEnWAAMn1lX.png"
+            src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg"
           />
         </div>
         <div className="card-name">

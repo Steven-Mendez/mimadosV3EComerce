@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const ContactInfo = () => {
   return (
@@ -9,8 +9,8 @@ const ContactInfo = () => {
             <div className="info-image">
               <i className="fas fa-phone-alt"></i>
             </div>
-            <h5>Call Us 24x7</h5>
-            <p>0736 230 063</p>
+            <h5>Llámanos 24x7</h5>
+            <p>8158 7176</p>
           </div>
         </div>
         <div className="col-12 col-md-4 contact-Box">
@@ -18,8 +18,8 @@ const ContactInfo = () => {
             <div className="info-image">
               <i className="fas fa-map-marker-alt"></i>
             </div>
-            <h5>Headquarter</h5>
-            <p>Arusha Njiro Pepsi</p>
+            <h5>Sede principal</h5>
+            <p>Bo. Larreynaga</p>
           </div>
         </div>
         <div className="col-12 col-md-4 contact-Box">

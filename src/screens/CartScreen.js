@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
-import Header from "./../components/Header";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { addToCart, removefromcart } from "./../Redux/Actions/cartActions";
+import React, { useEffect } from 'react';
+import Header from './../components/Header';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart, removefromcart } from './../Redux/Actions/cartActions';
 
 const CartScreen = ({ match, location, history }) => {
   window.scrollTo(0, 0);
   const dispatch = useDispatch();
   const productId = match.params.id;
-  const qty = location.search ? Number(location.search.split("=")[1]) : 1;
+  const qty = location.search ? Number(location.search.split('=')[1]) : 1;
 
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
@@ -22,7 +22,7 @@ const CartScreen = ({ match, location, history }) => {
   }, [dispatch, productId, qty]);
 
   const checkOutHandler = () => {
-    history.push("/login?redirect=shipping");
+    history.push('/login?redirect=shipping');
   };
 
   const removeFromCartHandle = (id) => {
@@ -35,15 +35,15 @@ const CartScreen = ({ match, location, history }) => {
       <div className="container">
         {cartItems.length === 0 ? (
           <div className=" alert alert-info text-center mt-3">
-            Your cart is empty
+            Tu carrito está vacío.
             <Link
               className="btn btn-success mx-5 px-5 py-3"
               to="/"
               style={{
-                fontSize: "12px",
+                fontSize: '12px',
               }}
             >
-              SHOPPING NOW
+              COMPRAR AHORA
             </Link>
           </div>
         ) : (
