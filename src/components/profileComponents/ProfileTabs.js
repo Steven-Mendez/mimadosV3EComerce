@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import Message from "../LoadingError/Error";
-import Toast from "./../LoadingError/Toast";
-import Loading from "./../LoadingError/Loading";
-import { toast } from "react-toastify";
-import { updateUserProfile } from "../../Redux/Actions/userActions";
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Message from '../LoadingError/Error';
+import Toast from './../LoadingError/Toast';
+import Loading from './../LoadingError/Loading';
+import { toast } from 'react-toastify';
+import { updateUserProfile } from '../../Redux/Actions/userActions';
 
 const ProfileTabs = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const toastId = React.useRef(null);
 
-  const Toastobjects = {
+  const ToastObjects = {
     pauseOnFocusLoss: false,
     draggable: false,
     pauseOnHover: false,
@@ -40,12 +40,15 @@ const ProfileTabs = () => {
     // Password match
     if (password !== confirmPassword) {
       if (!toast.isActive(toastId.current)) {
-        toastId.current = toast.error("Password does not match", Toastobjects);
+        toastId.current = toast.error(
+          'Las contraseñas no coinciden',
+          ToastObjects
+        );
       }
     } else {
       dispatch(updateUserProfile({ id: user._id, name, email, password }));
       if (!toast.isActive(toastId.current)) {
-        toastId.current = toast.success("Profile Updated", Toastobjects);
+        toastId.current = toast.success('Perfil actualizado', ToastObjects);
       }
     }
   };
@@ -58,7 +61,7 @@ const ProfileTabs = () => {
       <form className="row  form-container" onSubmit={submitHandler}>
         <div className="col-md-6">
           <div className="form">
-            <label for="account-fn">UserName</label>
+            <label for="account-fn">Nombre De Usuario</label>
             <input
               className="form-control"
               type="text"
@@ -71,7 +74,7 @@ const ProfileTabs = () => {
 
         <div className="col-md-6">
           <div className="form">
-            <label for="account-email">E-mail Address</label>
+            <label for="account-email">Dirección de correo electrónico</label>
             <input
               className="form-control"
               type="email"
@@ -83,7 +86,7 @@ const ProfileTabs = () => {
         </div>
         <div className="col-md-6">
           <div className="form">
-            <label for="account-pass">New Password</label>
+            <label for="account-pass">Nueva contraseña</label>
             <input
               className="form-control"
               type="password"
@@ -94,7 +97,7 @@ const ProfileTabs = () => {
         </div>
         <div className="col-md-6">
           <div className="form">
-            <label for="account-confirm-pass">Confirm Password</label>
+            <label for="account-confirm-pass">Confirmar Contraseña</label>
             <input
               className="form-control"
               type="password"
@@ -103,7 +106,7 @@ const ProfileTabs = () => {
             />
           </div>
         </div>
-        <button type="submit">Update Profile</button>
+        <button type="submit">Actualizar perfil</button>
       </form>
     </>
   );

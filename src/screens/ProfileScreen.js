@@ -1,11 +1,12 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import Header from "../components/Header";
-import ProfileTabs from "../components/profileComponents/ProfileTabs";
-import { getUserDetails } from "../Redux/Actions/userActions";
-import Orders from "./../components/profileComponents/Orders";
-import moment from "moment";
-import { listMyOrders } from "../Redux/Actions/OrderActions";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Header from '../components/Header';
+import ProfileTabs from '../components/profileComponents/ProfileTabs';
+import { getUserDetails } from '../Redux/Actions/userActions';
+import Orders from './../components/profileComponents/Orders';
+import moment from 'moment';
+import 'moment/locale/es';
+import { listMyOrders } from '../Redux/Actions/OrderActions';
 
 const ProfileScreen = () => {
   window.scrollTo(0, 0);
@@ -19,7 +20,7 @@ const ProfileScreen = () => {
 
   useEffect(() => {
     dispatch(listMyOrders());
-    dispatch(getUserDetails("profile"));
+    dispatch(getUserDetails('profile'));
   }, [dispatch]);
 
   return (
@@ -39,7 +40,10 @@ const ProfileScreen = () => {
                     <strong>{userInfo.name}</strong>
                   </h5>
                   <span className="author-card-position">
-                    <>Joined {moment(userInfo.createdAt).format("LL")}</>
+                    <>
+                      Se unió{' '}
+                      {moment(userInfo.createdAt).locale('es').format('LL')}
+                    </>
                   </span>
                 </div>
               </div>
@@ -62,7 +66,7 @@ const ProfileScreen = () => {
                     aria-controls="v-pills-home"
                     aria-selected="true"
                   >
-                    Profile Settings
+                    Configuración de perfil
                   </button>
                   <button
                     class="nav-link d-flex justify-content-between"
@@ -74,7 +78,7 @@ const ProfileScreen = () => {
                     aria-controls="v-pills-profile"
                     aria-selected="false"
                   >
-                    Orders List
+                    Lista de pedidos
                     <span className="badge2">{orders ? orders.length : 0}</span>
                   </button>
                 </div>

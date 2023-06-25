@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import Message from "../components/LoadingError/Error";
-import Loading from "../components/LoadingError/Loading";
-import { register } from "../Redux/Actions/userActions";
-import Header from "./../components/Header";
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import Message from '../components/LoadingError/Error';
+import Loading from '../components/LoadingError/Loading';
+import { register } from '../Redux/Actions/userActions';
+import Header from './../components/Header';
 
 const Register = ({ location, history }) => {
   window.scrollTo(0, 0);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const dispatch = useDispatch();
-  const redirect = location.search ? location.search.split("=")[1] : "/";
+  const redirect = location.search ? location.search.split('=')[1] : '/';
 
   const userRegister = useSelector((state) => state.userRegister);
   const { error, loading, userInfo } = userRegister;
@@ -42,27 +42,27 @@ const Register = ({ location, history }) => {
         >
           <input
             type="text"
-            placeholder="Username"
+            placeholder="Nombre de usuario"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
           <input
             type="email"
-            placeholder="Email"
+            placeholder="Correo electrónico"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
             type="password"
-            placeholder="Password"
+            placeholder="Contraseña"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
 
           <button type="submit">Register</button>
           <p>
-            <Link to={redirect ? `/login?redirect=${redirect}` : "/login"}>
-              I Have Account <strong>Login</strong>
+            <Link to={redirect ? `/login?redirect=${redirect}` : '/login'}>
+              Ya tengo una cuenta <strong>iniciar sesión</strong>
             </Link>
           </p>
         </form>

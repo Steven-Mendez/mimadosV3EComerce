@@ -1,8 +1,9 @@
-import moment from "moment";
-import React from "react";
-import { Link } from "react-router-dom";
-import Message from "../LoadingError/Error";
-import Loading from "../LoadingError/Loading";
+import moment from 'moment';
+import 'moment/locale/es';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Message from '../LoadingError/Error';
+import Loading from '../LoadingError/Loading';
 const Orders = (props) => {
   const { loading, error, orders } = props;
   return (
@@ -15,15 +16,15 @@ const Orders = (props) => {
         <>
           {orders.length === 0 ? (
             <div className="col-12 alert alert-info text-center mt-3">
-              No Orders
+              Sin pedidos
               <Link
                 className="btn btn-success mx-2 px-3 py-2"
                 to="/"
                 style={{
-                  fontSize: "12px",
+                  fontSize: '12px',
                 }}
               >
-                START SHOPPING
+                Empieza a Comprar
               </Link>
             </div>
           ) : (
@@ -31,17 +32,17 @@ const Orders = (props) => {
               <table className="table">
                 <thead>
                   <tr>
-                    <th>ID</th>
-                    <th>STATUS</th>
-                    <th>DATE</th>
-                    <th>TOTAL</th>
+                    <th>Id</th>
+                    <th>Estado</th>
+                    <th>Fecha</th>
+                    <th>Total</th>
                   </tr>
                 </thead>
                 <tbody>
                   {orders.map((order) => (
                     <tr
                       className={`${
-                        order.isPaid ? "alert-success" : "alert-danger"
+                        order.isPaid ? 'alert-success' : 'alert-danger'
                       }`}
                       key={order._id}
                     >
@@ -50,13 +51,13 @@ const Orders = (props) => {
                           {order._id}
                         </a>
                       </td>
-                      <td>{order.isPaid ? <>Paid</> : <>Not Paid</>}</td>
+                      <td>{order.isPaid ? <>Pagado</> : <>No Pagado</>}</td>
                       <td>
                         {order.isPaid
-                          ? moment(order.paidAt).calendar()
-                          : moment(order.createdAt).calendar()}
+                          ? moment(order.paidAt).locale('es').calendar()
+                          : moment(order.createdAt).locale('es').calendar()}
                       </td>
-                      <td>${order.totalPrice}</td>
+                      <td>C$ {order.totalPrice}</td>
                     </tr>
                   ))}
                 </tbody>

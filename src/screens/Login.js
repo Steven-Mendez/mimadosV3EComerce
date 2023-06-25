@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import Message from "../components/LoadingError/Error";
-import Loading from "../components/LoadingError/Loading";
-import Header from "./../components/Header";
-import { login } from "./../Redux/Actions/userActions";
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import Message from '../components/LoadingError/Error';
+import Loading from '../components/LoadingError/Loading';
+import Header from './../components/Header';
+import { login } from './../Redux/Actions/userActions';
 
 const Login = ({ location, history }) => {
   window.scrollTo(0, 0);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const dispatch = useDispatch();
-  const redirect = location.search ? location.search.split("=")[1] : "/";
+  const redirect = location.search ? location.search.split('=')[1] : '/';
 
   const userLogin = useSelector((state) => state.userLogin);
   const { error, loading, userInfo } = userLogin;
@@ -50,12 +50,12 @@ const Login = ({ location, history }) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="submit">Login</button>
+          <button type="submit">Iniciar Sesión</button>
           <p>
             <Link
-              to={redirect ? `/register?redirect=${redirect}` : "/register"}
+              to={redirect ? `/register?redirect=${redirect}` : '/register'}
             >
-              Create Account
+              Crear una cuenta
             </Link>
           </p>
         </form>
