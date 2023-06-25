@@ -108,8 +108,7 @@ const OrderScreen = ({ match }) => {
                     {order.isPaid ? (
                       <div className="bg-info p-2 col-12">
                         <p className="text-white text-center text-sm-start">
-                          Pagado el{' '}
-                          {moment(order.paidAt).locale('es').calendar()}
+                          Pagado {moment(order.paidAt).locale('es').calendar()}
                         </p>
                       </div>
                     ) : (
@@ -142,7 +141,7 @@ const OrderScreen = ({ match }) => {
                     {order.isDelivered ? (
                       <div className="bg-info p-2 col-12">
                         <p className="text-white text-center text-sm-start">
-                          Entregado en{' '}
+                          Entregado{' '}
                           {moment(order.deliveredAt).local('es').calendar()}
                         </p>
                       </div>
@@ -182,7 +181,7 @@ const OrderScreen = ({ match }) => {
                         </div>
                         <div className="mt-3 mt-md-0 col-md-2 col-6 align-items-end  d-flex flex-column justify-content-center ">
                           <h4>subtotal</h4>
-                          <h6>${item.qty * item.price}</h6>
+                          <h6>C$ {item.qty * item.price}</h6>
                         </div>
                       </div>
                     ))}
@@ -203,7 +202,7 @@ const OrderScreen = ({ match }) => {
                       <td>
                         <strong>Envío</strong>
                       </td>
-                      <td>${order.shippingPrice}</td>
+                      <td>C$ {order.shippingPrice}</td>
                     </tr>
                     <tr>
                       <td>
@@ -226,7 +225,7 @@ const OrderScreen = ({ match }) => {
                       <Loading />
                     ) : (
                       <PayPalButton
-                        amount={order.totalPrice}
+                        amount={(order.totalPrice / 36.5).toFixed(2)}
                         onSuccess={successPaymentHandler}
                       />
                     )}

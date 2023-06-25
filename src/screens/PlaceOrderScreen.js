@@ -63,7 +63,7 @@ const PlaceOrderScreen = ({ history }) => {
             <div className="row ">
               <div className="col-md-4 center">
                 <div className="alert-success order-box">
-                  <i class="fas fa-user"></i>
+                  <i className="fas fa-user"></i>
                 </div>
               </div>
               <div className="col-md-8 center">
@@ -138,7 +138,7 @@ const PlaceOrderScreen = ({ history }) => {
                     </div>
                     <div className="mt-3 mt-md-0 col-md-2 col-6 align-items-end  d-flex flex-column justify-content-center ">
                       <h4>SUBTOTAL</h4>
-                      <h6>${item.qty * item.price}</h6>
+                      <h6>C$ {item.qty * item.price}</h6>
                     </div>
                   </div>
                 ))}
@@ -153,25 +153,25 @@ const PlaceOrderScreen = ({ history }) => {
                   <td>
                     <strong>Products</strong>
                   </td>
-                  <td>${cart.itemsPrice}</td>
+                  <td>C$ {cart.itemsPrice}</td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Envío</strong>
                   </td>
-                  <td>${cart.shippingPrice}</td>
+                  <td>C$ {cart.shippingPrice}</td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Impuesto</strong>
                   </td>
-                  <td>${cart.taxPrice}</td>
+                  <td>C$ {cart.taxPrice}</td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Total</strong>
                   </td>
-                  <td>${cart.totalPrice}</td>
+                  <td>C$ {cart.totalPrice}</td>
                 </tr>
               </tbody>
             </table>
