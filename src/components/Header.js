@@ -106,11 +106,11 @@ const Header = () => {
                       </button>
                       <div className="dropdown-menu">
                         <Link className="dropdown-item" to="/login">
-                          Login
+                          Iniciar Sesión
                         </Link>
 
                         <Link className="dropdown-item" to="/register">
-                          Register
+                          Registrarse
                         </Link>
                       </div>
                     </div>
